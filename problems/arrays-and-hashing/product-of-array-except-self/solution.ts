@@ -1,13 +1,12 @@
-// Solution 1: Brute force nested loops O(n^2) (not tested)
+// Solution 1: Brute force nested loops O(n^2)
 // Solution 2: One pass to store prefix & suffix products, one pass for answer calculation O(n)
-// Soltuion 3: One pass store prefix products, one pass for answer calculation O(n)
+// Solution 3: One pass store prefix products, one pass for answer calculation O(n)
 
 // Due to a vitest bug, -0 is treated as not equal to 0. 
 // To ensure tests pass with input arrays containing 0 and negative values, solutions 2 and 3 coerce -0 into 0.
 
 /** Solution 1: Brute force nested loops
  *  Time: O(n^2), Space: O(1)
- *  Not tested due to exceeding time limit
  */ 
 const bruteForce = function(nums: number[]) {
     const answer: number[] = []
