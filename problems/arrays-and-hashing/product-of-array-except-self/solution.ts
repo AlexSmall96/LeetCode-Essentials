@@ -9,7 +9,7 @@
  *  Time: O(n^2), Space: O(1)
  *  Not tested due to exceeding time limit
  */ 
-var productExceptSelf_TLE = function(nums: number[]) {
+const bruteForce = function(nums: number[]) {
     const answer: number[] = []
     const n = nums.length
 
@@ -18,6 +18,7 @@ var productExceptSelf_TLE = function(nums: number[]) {
         for (let j=0; j<n; j++){
             if (j !== i){
                 product *= nums[j]
+                product = product === 0? 0: product
             }
         }
         answer.push(product)
@@ -29,7 +30,7 @@ var productExceptSelf_TLE = function(nums: number[]) {
 /** Solution 2: Store prefix & suffix products
  *  Time O(n), Space O(n)
  */
-export var productExceptSelf = function(nums: number[]) {
+const prefixSuffix = function(nums: number[]) {
     const n = nums.length
     const prefixes = new Array<number>(n)
     const suffixes = new Array<number>(n)
@@ -64,7 +65,7 @@ export var productExceptSelf = function(nums: number[]) {
 /** Solution 3: Prefix product in answer array
  *  Time O(n), Space O(1) (not including output array)
  */
-export var productExceptSelf_OptimalSpace = function(nums: number[]) {
+const constantSpace = function(nums: number[]) {
     const n = nums.length
     const answer = new Array<number>(n)
     answer[0] = 1
@@ -84,3 +85,7 @@ export var productExceptSelf_OptimalSpace = function(nums: number[]) {
 
     return answer
 };
+
+export const solutions = {
+    bruteForce, prefixSuffix, constantSpace
+}
