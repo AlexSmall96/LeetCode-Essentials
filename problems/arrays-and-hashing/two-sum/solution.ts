@@ -1,5 +1,5 @@
 // Solution 1: Brute force nested loops O(n^2)
-// Solution 2: One pass hash map O(n)
+// Solution 2: One pass hash map with indices O(n)
 
 /** Solution 1: Nested loops
  *  Time: O(n^2), Space: O(1)
@@ -16,7 +16,7 @@ export var inefficientSol = function(nums: number[], target: number){
 }
 
 
-/** Solution 2: Hash map
+/** Solution 2: Hash map with indices
  * Time: O(n), Space: O(n)
  */
 export var twoSum = function(nums: number[], target: number){
