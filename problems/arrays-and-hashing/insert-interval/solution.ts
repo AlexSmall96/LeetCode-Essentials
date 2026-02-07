@@ -4,20 +4,16 @@ type intervalType = [number, number]
  * Time: O(n), Space: O(n)
  */
 export function insertInterval(intervals: intervalType[], newInterval: intervalType): intervalType[] {
+
+    if (intervals.length === 0){
+        return [newInterval]
+    }
     let inserted = false
 
-    const merged = []
-
-    let aboveFound = false
+    const merged = [] as intervalType[]
 
     for (let interval of intervals){
-        // If aboveFound flag set to true, no more merging is required
-        if (aboveFound){
-            merged.push(interval)
-            continue
-        }
         if (!inserted){
-            // Check relative position of intervals
             const below = interval[1] < newInterval[0]
             const above = newInterval[1] < interval[0]
             const overlap = !below && !above
@@ -28,30 +24,26 @@ export function insertInterval(intervals: intervalType[], newInterval: intervalT
                 merged.push(newInterval)
                 merged.push(interval)
                 inserted = true
-                // Flag that interval above newInterval has been found, to immediately push interval on next iteration
-                aboveFound = true
             }
             if (overlap){
                 merged.push([Math.min(interval[0], newInterval[0]), Math.max(interval[1], newInterval[1])])
                 inserted = true
             }
         } else {
-            const m: number = merged.length
-            const lastAdded = merged[m] as intervalType
+            const m = merged.length
+            const lastAdded = merged[m - 1]
             // Since intervals is sorted, from here we can assume that interval[0] >= lastAdded[0]
             if (interval[0] <= lastAdded[1]){
-                merged[m] = [lastAdded[0], Math.max(lastAdded[1], interval[1])]
+                merged[merged.length - 1] = [lastAdded[0], Math.max(lastAdded[1], interval[1])]
             } else {
                 merged.push(interval)
-                // Flag that interval above newInterval has been found, to immediately push interval on next iteration
-                aboveFound = true
             }
         }
     }
 
     if (!inserted){
         merged.push(newInterval)
-    }    
+    }
 
-    return merged  as intervalType[]
+    return merged
 }
