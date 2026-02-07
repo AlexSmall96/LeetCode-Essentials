@@ -4,7 +4,7 @@
 /** Solution 1: Sorted string comparison
  *  Time: O(nlog(n)), Space: O(n)
  */
-export var inefficientSol = function(s:string, t:string) {
+export function sortAndCompare(s:string, t:string) {
     const sortedS = s.split("").sort().join("")
     const sortedT = t.split("").sort().join("")
     return sortedS === sortedT
@@ -14,14 +14,14 @@ export var inefficientSol = function(s:string, t:string) {
 /** Solution 2: Hash map with frequency counts
  *  Time: O(n), Space: O(1)
  */
-export var isAnagram = function(s:string, t:string) {
+export function frequencyCountsHash(s:string, t:string) {
     
     // Anagrams must be same length
     if (s.length !== t.length){
         return false
     }
 
-    const counts:{[char: string]: number} = {}
+    const counts: {[char: string]: number} = {}
 
     for (let char of s){
         if (char in counts){

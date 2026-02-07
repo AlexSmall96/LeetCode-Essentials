@@ -1,10 +1,10 @@
 import { test, expect } from 'vitest'
-import { isAnagram, inefficientSol} from './solution.ts'
+import { frequencyCountsHash, sortAndCompare} from './solution.ts'
 
 // Helper function to make assertions on both functions
 const expectCorrectBoolean = (s: string, t: string, bool: boolean) => {
-    expect(isAnagram(s, t)).toBe(bool)
-    expect(inefficientSol(s, t)).toBe(bool)
+    expect(frequencyCountsHash(s, t)).toBe(bool)
+    expect(sortAndCompare(s, t)).toBe(bool)
 }
 
 // Tests
@@ -15,7 +15,7 @@ test('Strings unequal in length return false.', () => {
     expectCorrectBoolean('aabbccddeeffgg', 'abcdefg', false)
 })
 
-// Due to the assymetry between the two arguments in isAnagram, the below tests are both necessary.
+// Due to the assymetry between the two arguments in frequencyCountsHash, the below tests are both necessary.
 test('First string containing a character not in second string returns false.', () => {
     expectCorrectBoolean('abbc', 'abbb', false)
     expectCorrectBoolean('ab', 'aa', false)

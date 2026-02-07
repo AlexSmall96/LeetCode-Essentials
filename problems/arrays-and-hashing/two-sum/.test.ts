@@ -1,10 +1,10 @@
 import { test, expect } from 'vitest'
-import { twoSum, inefficientSol} from './solution.ts'
+import { nestedLoops, indexHashMap} from './solution.ts'
 
 // Helper function to make assertions on both functions
 const expectCorrectIndices = (nums: number[], target:number, solution: [number, number]) => {
-    expect(twoSum(nums, target)).toEqual(solution)
-    expect(inefficientSol(nums, target)).toEqual(solution)
+    expect(indexHashMap(nums, target)).toEqual(solution)
+    expect(nestedLoops(nums, target)).toEqual(solution)
 }
 
 // Tests
@@ -24,8 +24,8 @@ test('Arrays with duplicates returns correct indices.', () => {
 test('Both functions do not mutate input array when called.', () => {
     const nums = [1, 2, 3]
     const target = 5
-    twoSum(nums, target)
+    indexHashMap(nums, target)
     expect(nums).toEqual([1,2, 3])
-    inefficientSol(nums, target)
+    nestedLoops(nums, target)
     expect(nums).toEqual([1,2, 3])
 })

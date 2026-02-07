@@ -1,12 +1,12 @@
 import { test, expect, describe } from 'vitest'
 import { solutions } from './solution.ts'
 
-const { bruteForce, prefixSuffix, constantSpace } = solutions
+const { nestedLoops, prefixSuffix, constantSpace } = solutions
 
 // Helper function to test both functions an array of inputs
 const expectCorrectArraysAll = (inputs: [number[], number[]][]) => {
     inputs.map(input => {
-        expect(bruteForce(input[0])).toEqual(input[1])
+        expect(nestedLoops(input[0])).toEqual(input[1])
         expect(prefixSuffix(input[0])).toEqual(input[1])
         expect(constantSpace(input[0])).toEqual(input[1])
     })
@@ -38,7 +38,7 @@ describe('SMALL INPUTS (all solutions tested)', () =>{
 
     test('None of the solutions mutate input array.', () => {
         const nums = [1,2,3,4]
-        bruteForce(nums)
+        nestedLoops(nums)
         prefixSuffix(nums)
         constantSpace(nums)
         expect(nums).toEqual([1,2,3,4])

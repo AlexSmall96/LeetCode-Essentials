@@ -4,7 +4,7 @@
 /** Solution 1: Sorted array comparison
  *  Time O(n * log(n)), Space: O(1) 
  */
-export const sortAndCompare = function(nums: number[]) {
+export function sortAndCompare(nums: number[]) {
     const n = nums.length
 
     if (n === 0){
@@ -32,7 +32,7 @@ export const sortAndCompare = function(nums: number[]) {
 /** Solution 2: Sequence counter
  *  Time O(n), Space: O(n)
  */
-export const sequenceCounter = function(nums: number[]) {
+export function sequenceCounter(nums: number[]) {
     
     const elements = new Set<number>([...nums])
     const visited = new Set<number>()

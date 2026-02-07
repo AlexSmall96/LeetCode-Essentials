@@ -4,7 +4,7 @@
 /** Solution 1: Nested loops
  *  Time: O(n^2), Space: O(1)
  */
-export var inefficientSol = function(nums: number[], target: number){
+export function nestedLoops(nums: number[], target: number){
     const n = nums.length
     for (let i=0; i<n; i++){
         for (let j = i+1; j<n; j++){
@@ -19,7 +19,7 @@ export var inefficientSol = function(nums: number[], target: number){
 /** Solution 2: Hash map with indices
  * Time: O(n), Space: O(n)
  */
-export var twoSum = function(nums: number[], target: number){
+export function indexHashMap(nums: number[], target: number){
     const indices: {[num: number]: number} = {}
     for (let [index, num] of nums.entries()){
         const diff = target - num

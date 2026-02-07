@@ -1,11 +1,11 @@
 import { test, expect } from 'vitest'
-import { inefficientSol, containsDuplicate} from './solution.ts'
+import { sortAndCompare, hashLookup} from './solution.ts'
 
 // Helper function to make assertions on both functions for a variety of inputs
 const expectCorrectBooleans = (inputs: number[][], bool: boolean) => {
     inputs.map(input => {
-        expect(containsDuplicate(input)).toBe(bool)
-        expect(inefficientSol(input)).toBe(bool)
+        expect(hashLookup(input)).toBe(bool)
+        expect(sortAndCompare(input)).toBe(bool)
     })
 }
 
@@ -34,12 +34,12 @@ test('Array consisting of no duplicates returns false.', () => {
 
 test('Neither function mutates input array when called.', () => {
     const numsWithNoDups = [1,2,3,4]
-    containsDuplicate(numsWithNoDups)
-    inefficientSol(numsWithNoDups)
+    hashLookup(numsWithNoDups)
+    sortAndCompare(numsWithNoDups)
     expect(numsWithNoDups).toEqual([1,2,3,4])
 
     const numsWithDups = [1,1,2]
-    containsDuplicate(numsWithDups)
-    inefficientSol(numsWithDups)
+    hashLookup(numsWithDups)
+    sortAndCompare(numsWithDups)
     expect(numsWithDups).toEqual([1,1,2])
 })

@@ -5,7 +5,7 @@
  * Solution 1: Brute Force Nested Loops
  * Time: O(k * n), Space: O(1)
  */
-export const bruteForce = function(nums: number[], k:number) {
+export function nestedLoops(nums: number[], k:number) {
     const maxElements: number[] = []
     let newNums = nums
 
@@ -34,7 +34,7 @@ export const bruteForce = function(nums: number[], k:number) {
  * Solution 2: Bucket Sort
  * Time: O(n), Space: O(n)
  */
-export const optimized = function(nums: number[], k:number) {
+export function bucketSort(nums: number[], k:number) {
     
     const freq = new Map<number, number>()
     for (let num of nums){

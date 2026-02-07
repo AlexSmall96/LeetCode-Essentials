@@ -1,11 +1,11 @@
 import { test, expect, describe } from 'vitest'
-import { bruteForce, optimized } from './solution.ts'
+import { nestedLoops, bucketSort } from './solution.ts'
 
 // Helper function to test both functions an array of inputs
 const expectCorrectArrays = (inputs: [number[], number, number[]][]) => {
     inputs.map(input => {
-        expect(bruteForce(input[0], input[1])).toEqual(input[2])
-        expect(optimized(input[0], input[1])).toEqual(input[2])
+        expect(nestedLoops(input[0], input[1])).toEqual(input[2])
+        expect(bucketSort(input[0], input[1])).toEqual(input[2])
     })
 }
 
@@ -41,6 +41,6 @@ describe('LARGE INPUTS (only optimal solution tested)', () => {
         }) 
         const k = 50
         // Test that function runs without timeout
-        optimized(nums, k)
+        bucketSort(nums, k)
     }) 
 })

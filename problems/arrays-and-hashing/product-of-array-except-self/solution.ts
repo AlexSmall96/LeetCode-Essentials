@@ -8,7 +8,7 @@
 /** Solution 1: Brute force nested loops
  *  Time: O(n^2), Space: O(1)
  */ 
-const bruteForce = function(nums: number[]) {
+export function nestedLoops(nums: number[]) {
     const answer: number[] = []
     const n = nums.length
 
@@ -29,7 +29,7 @@ const bruteForce = function(nums: number[]) {
 /** Solution 2: Store prefix & suffix products
  *  Time O(n), Space O(n)
  */
-const prefixSuffix = function(nums: number[]) {
+export function prefixSuffix(nums: number[]) {
     const n = nums.length
     const prefixes = new Array<number>(n)
     const suffixes = new Array<number>(n)
@@ -64,7 +64,7 @@ const prefixSuffix = function(nums: number[]) {
 /** Solution 3: Prefix product in answer array
  *  Time O(n), Space O(1) (not including output array)
  */
-const constantSpace = function(nums: number[]) {
+export function constantSpace(nums: number[]) {
     const n = nums.length
     const answer = new Array<number>(n)
     answer[0] = 1
@@ -86,5 +86,5 @@ const constantSpace = function(nums: number[]) {
 };
 
 export const solutions = {
-    bruteForce, prefixSuffix, constantSpace
+    nestedLoops, prefixSuffix, constantSpace
 }
