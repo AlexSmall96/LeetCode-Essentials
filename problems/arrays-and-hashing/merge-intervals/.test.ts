@@ -55,6 +55,12 @@ describe('SMALL INPUTS', () => {
         ] satisfies [[number, number][], [number, number][]][]
         expectCorrectArrays(inputs)
     })
+
+    test('Function does not mutate input array.', () => {
+        const input = [[1,4],[2,6],[3,5]] as [number, number][]
+        mergeIntervals(input)
+        expect(input).toEqual([[1,4],[2,6],[3,5]])
+    })
 })
 
 describe('LARGE INPUTS', () => {
@@ -68,4 +74,5 @@ describe('LARGE INPUTS', () => {
         mergeIntervals(intervals)
     })
 })
+
  
