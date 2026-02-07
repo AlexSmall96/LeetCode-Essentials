@@ -1,2 +1,5 @@
 node_modules
 .env
+playground.ts
+playground.js
+notes
