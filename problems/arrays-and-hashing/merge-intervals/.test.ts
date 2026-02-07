@@ -65,7 +65,9 @@ describe('SMALL INPUTS', () => {
 
 describe('LARGE INPUTS', () => {
     test('Function runs for large input.', () => {
-        const intervals = Array.from({length: 10000}, () => {
+        // Test with array of length 10^4, Leetcode's maximum input size for this problem
+        const n = 10**4
+        const intervals = Array.from({length: n}, () => {
             const start = Math.floor(Math.random() * 1000) - 500
             const end = start + Math.floor(Math.random() * 10) + 1
             return [start, end]
