@@ -26,7 +26,7 @@ describe('SMALL INPUTS', () => {
         const inputs = [
             ["cbaebabacd", "abc", [0,6]],
             ["abab", "ab", [0,1,2]],
-            ["aaabbb", "ab", [0,1,2,3]],
+            ["aaabbb", "ab", [2]],
         ] satisfies [string, string, number[]][]
         expectCorrectArrays(inputs)
     })
