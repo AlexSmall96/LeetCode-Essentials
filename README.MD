@@ -1,4 +1,6 @@
 # LeetCode Essentials
+![CI](https://github.com/AlexSmall96/LeetCode-Essentials/actions/workflows/ci.yml/badge.svg)
+
 A curated collection of LeetCode problems organized by algorithmic patterns,
 with TypeScript solutions, time/space complexity analysis, and automated tests.
 
